@@ -30,13 +30,16 @@ const port = process.env.PORT || 8000;
 const url = process.env.DATABASE;
 console.log("hey");
 mongoose
-  .connect(url, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    poolSize: 50,
-    useFindAndModify: false,
-  })
+  .connect(
+    "mongodb+srv://restAdmin:n59fxMPAqSBthTn7@cluster0.akzz2.mongodb.net/Restaurants-App?retryWrites=true&w=majority",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex: true,
+      poolSize: 50,
+      useFindAndModify: false,
+    }
+  )
   .then(() => console.log("MONGO is conected"))
   .catch((err) => console.log(err));
 
