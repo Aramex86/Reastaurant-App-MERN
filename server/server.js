@@ -24,11 +24,11 @@ app.use(cors(corsConfig));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
-app.use("/", express.static(path.join(__dirname, "./upload")));
+app.use("./upload", express.static(path.join(__dirname, "./upload")));
 const port = process.env.PORT || 8000;
 
 const url = process.env.DATABASE;
-console.log("hey");
+console.log(url);
 mongoose
   .connect(
     "mongodb+srv://restAdmin:n59fxMPAqSBthTn7@cluster0.akzz2.mongodb.net/Restaurants-App?retryWrites=true&w=majority",
