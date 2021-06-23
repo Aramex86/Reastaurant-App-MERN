@@ -46,7 +46,7 @@ mongoose
 app.use("/api/v1/restaurants", restaurants);
 app.use("/api/v1/profileBg", background);
 app.use("/api/v1/users", users);
-app.use("*", (req, res) => res.status(404).json({ error: "not found" }));
+// app.use("*", (req, res) => res.status(404).json({ error: "not found" }));
 
 //production!
 
