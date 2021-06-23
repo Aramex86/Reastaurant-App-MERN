@@ -50,19 +50,19 @@ app.use("/api/v1/users", users);
 
 //production!
 
-// app.use(express.static(path.resolve(__dirname, "../client/build")));
+app.use(express.static(path.resolve(__dirname, "../client/build")));
 
-// app.get("*", (req, res) => {
-//   res.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
-// });
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
+});
 
-if (process.env.NODE_ENV === "production") {
-  // app.use(express.static("../client/build"));
-  app.use(express.static(path.resolve(__dirname, "../client/build")));
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
-  });
-}
+// if (process.env.NODE_ENV === "production") {
+//   // app.use(express.static("../client/build"));
+//   app.use(express.static(path.resolve(__dirname, "../client/build")));
+//   app.get("*", (req, res) => {
+//     res.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
+//   });
+// }
 app.listen(port, () => {
   console.log(`listen on port ${port}`);
 });
