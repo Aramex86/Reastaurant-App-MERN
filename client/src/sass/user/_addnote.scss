@@ -1,0 +1,46 @@
+.add-notewrapp {
+  position: absolute;
+  top: 0;
+  width: 400px;
+  min-height: 200px;
+  border-radius: 5px;
+  background: #f0fff0c4;
+  z-index: 2;
+  & form {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 10px;
+    padding: 30px 15px;
+    position: relative;
+    & select {
+      grid-column: 1/1;
+      height: 30px;
+      padding: 5px 10px;
+    }
+    & input {
+      grid-column: 2/2;
+      padding: 5px 10px;
+    }
+    & textarea {
+      grid-column: 1/-1;
+      grid-row: 2/2;
+      min-height: 150px;
+      padding: 5px 10px;
+    }
+  }
+}
+.addnote-error {
+  position: absolute;
+  color: #fff;
+  position: absolute;
+  right: -17%;
+  top: 10%;
+  background-color: #fd4949;
+  width: 80px;
+  height: 35px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  clip-path: polygon(12% 0, 100% 0, 100% 100%, 12% 100%, 0% 50%);
+}

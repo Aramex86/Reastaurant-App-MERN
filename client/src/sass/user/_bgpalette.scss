@@ -1,0 +1,16 @@
+.bgpallete {
+  grid-column: 10/12;
+  display: flex;
+  margin-top: 10%;
+  border: 2px solid #dcdcdcd9;
+  padding: 5px;
+  justify-content: space-between;
+  justify-self: end;
+  width: 90%;
+}
+
+.bg__type {
+  width: 100px;
+  height: 70px;
+  cursor: pointer;
+}

@@ -1,0 +1,23 @@
+.sidemenu {
+  background: #0000007d;
+  width: 170px;
+  grid-column: 1/1;
+  grid-row: 1/-1;
+  &-list {
+    width: 100%;
+    padding: 50px 0;
+    color: #fff;
+    &__item {
+      display: flex;
+      padding: 10px 10px;
+      font-weight: 600;
+      cursor: pointer;
+      & svg {
+        margin-right: 10px;
+      }
+      & a {
+        color: inherit;
+      }
+    }
+  }
+}

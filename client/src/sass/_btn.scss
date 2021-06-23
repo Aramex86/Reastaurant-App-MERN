@@ -1,0 +1,122 @@
+.btn {
+  background: transparent;
+  outline: transparent;
+  border: none;
+  cursor: pointer;
+  &--login {
+    font-family: "Lobster", cursive;
+    color: #fff;
+    font-size: 20px;
+    margin-right: 10px;
+  }
+  &--like {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #ffffff47;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    transition: transform 0.2s ease;
+    z-index: 2;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  &--addreview {
+    width: 170px;
+    height: 60px;
+    background: #1e1c1cbd;
+    color: #fff;
+    font-family: "Lobster", cursive;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    margin-left: auto;
+  }
+  &--add {
+    margin-top: 10px;
+    width: 90%;
+    height: 30px;
+    background: #fff;
+    border-radius: 5px;
+    font-family: "Lobster", cursive;
+    font-weight: 600;
+  }
+  &--loginFform {
+    width: 60%;
+    font-family: "Lobster", cursive;
+    background: #fff;
+    padding: 5px 0;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    font-size: 22px;
+    border-radius: 5px;
+    text-shadow: 1px 2px 3px #00000091;
+  }
+  &--profile__settings {
+    position: absolute;
+    right: 25px;
+    top: 25px;
+    & svg {
+      &:hover {
+        animation: rotate 2s infinite;
+      }
+    }
+  }
+  &--addnote {
+    color: #fff;
+    margin-top: 10px;
+    background-color: #262323a8;
+    padding: 5px;
+    border-radius: 0 5px;
+  }
+  &--addNoteForm {
+    width: 100px;
+    height: 30px;
+    background: #fff;
+    border-radius: 0 5px;
+    font-family: "Lobster", cursive;
+    text-transform: capitalize;
+    &--addrest {
+      background: darkgray;
+      margin-top: 15px;
+    }
+  }
+  &--colsenote {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    z-index: 3;
+  }
+  &--deletenote {
+    position: absolute;
+    left: 5px;
+  }
+  &--popup {
+    background: #c2c2c2d1;
+    width: 60px;
+    height: 30px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 2px 0px #00000085;
+    transition: all 0.1s;
+    font-weight: 600;
+    &:hover {
+      box-shadow: 0px 3px 2px 1px #00000085;
+    }
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(-180deg);
+  }
+}

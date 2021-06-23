@@ -1,0 +1,27 @@
+.popup {
+  width: 300px;
+  height: auto;
+  padding: 25px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: #fff;
+  z-index: 9;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #000;
+  font-family: "Lobster", cursive;
+  font-weight: 600;
+  font-size: 18px;
+  border-radius: 10px;
+  &-btn-wrap {
+    margin-top: 20px;
+    width: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

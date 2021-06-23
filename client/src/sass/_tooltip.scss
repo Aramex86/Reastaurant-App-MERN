@@ -1,0 +1,16 @@
+.tooltip {
+  position: absolute;
+  right: 2px;
+  background: #9c0101d4;
+  width: 147px;
+  bottom: 49px;
+  text-align: center;
+  border-radius: 4px;
+  color: #fff;
+  opacity: 5;
+  transition: opacity 0.5s ease;
+  padding: 5px 10px;
+  &--show {
+    opacity: 0;
+  }
+}

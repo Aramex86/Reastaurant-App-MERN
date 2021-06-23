@@ -1,0 +1,22 @@
+.review-wrapp {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  &__card {
+    padding: 10px 5px;
+    border: 1px solid #8080805e;
+    width: 40%;
+    margin-bottom: 11px;
+    border-radius: 5px;
+    &__name {
+      font-weight: 600;
+    }
+    &__raiting {
+    }
+    &__comment {
+    }
+    & span {
+      font-family: "Lobster", cursive;
+    }
+  }
+}
