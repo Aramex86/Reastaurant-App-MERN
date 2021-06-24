@@ -38,7 +38,6 @@ mongoose
   })
   .then(() => console.log("MONGO is conected"))
   .catch((err) => console.log(err));
-
 app.use("/api/v1/restaurants", restaurants);
 app.use("/api/v1/users", users);
 app.use("/api/v1/profileBg", background);
