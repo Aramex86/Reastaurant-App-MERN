@@ -13,8 +13,7 @@ export const MY_API = "AIzaSyBhr_PmeQMzMCoERPzs3cfNNzuJ89Ld_Ss";
 
 // axios.defaults.withCredentials = true;
 const instance = axios.create({
-  // baseURL: `http://localhost:5000/api/v1/`,
-  baseURL: `https://secret-woodland-40370.herokuapp.com`,
+  baseURL: `http://localhost:5000/api/v1/`,
   withCredentials: true,
 });
 
