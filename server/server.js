@@ -24,45 +24,41 @@ app.use(cors(corsConfig));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
-app.use("./upload", express.static(path.join(__dirname, "./upload")));
+app.use("/", express.static(path.join(__dirname, "upload")));
 const port = process.env.PORT || 8000;
 
 const url = process.env.DATABASE;
-console.log(url);
 mongoose
-  .connect(
-    "mongodb+srv://restAdmin:n59fxMPAqSBthTn7@cluster0.akzz2.mongodb.net/Restaurants-App?retryWrites=true&w=majority",
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useCreateIndex: true,
-      poolSize: 50,
-      useFindAndModify: false,
-    }
-  )
+  .connect(url, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    poolSize: 50,
+    useFindAndModify: false,
+  })
   .then(() => console.log("MONGO is conected"))
   .catch((err) => console.log(err));
 
 app.use("/api/v1/restaurants", restaurants);
-app.use("/api/v1/profileBg", background);
 app.use("/api/v1/users", users);
+app.use("/api/v1/profileBg", background);
 // app.use("*", (req, res) => res.status(404).json({ error: "not found" }));
 
 //production!
 
-app.use(express.static(path.resolve(__dirname, "../client/build")));
+// app.use(express.static(path.resolve(__dirname, "../client/build")));
 
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
+// });
 
-// if (process.env.NODE_ENV === "production") {
-//   // app.use(express.static("../client/build"));
-//   app.use(express.static(path.resolve(__dirname, "../client/build")));
-//   app.get("*", (req, res) => {
-//     res.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
-//   });
-// }
+if (process.env.NODE_ENV === "production") {
+  // app.use(express.static("../client/build"));
+  app.use(express.static(path.resolve(__dirname, "../client/build")));
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
+  });
+}
 app.listen(port, () => {
   console.log(`listen on port ${port}`);
 });
