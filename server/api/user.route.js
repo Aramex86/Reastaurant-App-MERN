@@ -43,7 +43,7 @@ router.route("/register").post((req, res) => {
     );
 });
 
-router.route("/login").post((req, res) => {
+router.route("users/login").post((req, res) => {
   User.findOne({ email: req.body.email }, (err, user) => {
     if (!user) return res.json({ msg: "Error" });
 
