@@ -72,7 +72,7 @@ export const restaurantsApi = {
 export const usersApi = {
   registerUser(data: RegisterType) {
     return instance
-      .post("users/register", data)
+      .post("/register", data)
       .then((res) => {
         return res.data;
       })

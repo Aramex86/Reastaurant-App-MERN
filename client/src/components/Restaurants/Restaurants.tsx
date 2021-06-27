@@ -5,7 +5,7 @@ import {
   reqRestaurants,
   restaurantSelector,
 } from "../../Store/slice/restaurantSlice";
-import { reqIsAuth, reqLogoutUser } from "../../Store/slice/userSlice";
+import { reqIsAuth } from "../../Store/slice/userSlice";
 import { RestaurantType } from "../../types/types";
 import ResCard from "../Cards/ResCard";
 
