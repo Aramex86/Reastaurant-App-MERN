@@ -27,7 +27,7 @@ app.use(cookieParser());
 app.use("/", express.static(path.join(__dirname, "upload")));
 const port = process.env.PORT || 5000;
 
-const url = process.env.DATABASE;
+const url = process.env.MONGODB_URI;
 mongoose
   .connect(url, {
     useNewUrlParser: true,
@@ -38,6 +38,7 @@ mongoose
   })
   .then(() => console.log("MONGO is conected"))
   .catch((err) => console.log(err));
+
 app.use("/api/v1/restaurants", restaurants);
 app.use("/api/v1/users", users);
 app.use("/api/v1/profileBg", background);
@@ -53,6 +54,7 @@ app.use("/api/v1/profileBg", background);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.resolve(__dirname, "../client/build")));
+
   app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
   });
