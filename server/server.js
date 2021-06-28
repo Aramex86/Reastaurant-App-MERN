@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+import http from "http";
 
 import restaurants from "./api/restaurants.route.js";
 import users from "./api/user.route.js";
@@ -20,6 +21,7 @@ const corsConfig = {
   credentials: true,
 };
 const app = express();
+const server = http.createServer(app);
 app.use(cors(corsConfig));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -59,6 +61,6 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
   });
 }
-app.listen(port, () => {
+server.listen(port, () => {
   console.log(`listen on port ${port}`);
 });
