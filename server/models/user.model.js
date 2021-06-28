@@ -37,7 +37,6 @@ const userSchema = new Schema(
     },
     reviews: {
       type: Array,
-      unique: 1,
       restName: {
         type: String,
         unique: 1,
