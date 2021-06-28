@@ -152,9 +152,9 @@ export const reqLoginUser =
   (data: LoginUserType): AppThunk =>
   async (dispatch) => {
     const res = await usersApi.loginUser(data);
-    if (res.loginSuccess) dispatch(loginUserSuccess(res));
+    // if (res.loginSuccess) dispatch(loginUserSuccess(res));
 
-    if (!res.loginSuccess) dispatch(loginUserError(res));
+    // if (!res.loginSuccess) dispatch(loginUserError(res));
   };
 
 export const reqIsAuth = (): AppThunk => async (dispatch) => {
