@@ -47,6 +47,8 @@ const Profile = () => {
   const { name, lastname, email, image } = authUser;
   const init = authUser.name ? name.slice(0, 1) : "";
 
+  console.log(avatar);
+
   const handlePhoto = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file: any = e.target.files;
     if (file) {

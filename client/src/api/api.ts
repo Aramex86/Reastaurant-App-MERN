@@ -186,7 +186,7 @@ export const usersApi = {
     return instance
       .get(`users/profile/image/${id}`)
       .then((res) => {
-        return `http://localhost:5000/${res.data}`;
+        return res.data;
       })
       .catch((err) => err);
   },
