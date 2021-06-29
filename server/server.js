@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-import http from "http";
+// import http from "http";
 
 import restaurants from "./api/restaurants.route.js";
 import users from "./api/user.route.js";
@@ -21,7 +21,7 @@ const corsConfig = {
   credentials: true,
 };
 const app = express();
-const server = http.createServer(app);
+// const server = http.createServer(app);
 app.use(cors(corsConfig));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -57,10 +57,17 @@ app.use("/api/v1/profileBg", background);
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.resolve(__dirname, "../client/build")));
 
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "../client/build/index.html"));
+  app.get("*", (_, res) => {
+    res.sendFile(
+      path.resolve(__dirname, "../client/build/index.html"),
+      (err) => {
+        if (err) {
+          res.status(500).send(err);
+        }
+      }
+    );
   });
 }
-server.listen(port, () => {
+app.listen(port, () => {
   console.log(`listen on port ${port}`);
 });
