@@ -69,7 +69,7 @@ router.route("/add").post(upload.single("photo"), (req, res) => {
   };
   const neighborhood = req.body.neighborhood;
   const reviews = req.body.reviews;
-  const image = `http://localhost:5000/${req.file.filename}`;
+  const image = `https://secret-woodland-40370.herokuapp.com/${req.file.filename}`;
 
   const newRestaurant = new Restaurant({
     id,

@@ -143,7 +143,7 @@ router.route("/liked/:id").get((req, res) => {
 
 router.route("/profile/:id").post(upload.single("avatar"), (req, res) => {
   User.findById({ _id: req.params.id }).then((user) => {
-    user.image = req.file.filename;
+    user.image = `https://secret-woodland-40370.herokuapp.com/${req.file.filename}`;
 
     user
       .save()
