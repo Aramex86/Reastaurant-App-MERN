@@ -2,9 +2,9 @@
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   grid-template-rows: 200px 150px 150px 200px;
-  background: url(../assets/loginBg.jpg)center/cover no-repeat;
+  background: url(../assets/loginBg-min.jpg) center/cover no-repeat;
   height: 100vh;
- opacity: 3;
+  opacity: 3;
   &__form {
     grid-column: 4/6;
     grid-row: 2/4;
@@ -17,12 +17,12 @@
     color: #fff;
     border-radius: 5px;
 
-    & span{
-        letter-spacing: 1px;
+    & span {
+      letter-spacing: 1px;
     }
-    & h3{
-        font-size: 28px;
-        letter-spacing: 2px;
+    & h3 {
+      font-size: 28px;
+      letter-spacing: 2px;
     }
     & input {
       padding: 10px 10px;
@@ -30,8 +30,8 @@
       border: none;
       outline: transparent;
       border-radius: 5px;
-      &:focus{
-          border: 2px solid rgba(16, 16, 16, 0.707);
+      &:focus {
+        border: 2px solid rgba(16, 16, 16, 0.707);
       }
     }
 
@@ -39,8 +39,7 @@
       margin-top: 25px;
     }
     &-password {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     }
   }
 }
-

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../Store/hooks/hooks";
 import {
   authUserSelector,
@@ -35,10 +35,10 @@ const Profile = () => {
   const [putBg, setPutBg] = useState<boolean>(false);
   const [showAddNote, setShowAddNote] = useState<boolean>(false);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     dispatch(reqUserAvatar(id));
   }, []);
-  useEffect(() => {
+  useLayoutEffect(() => {
     dispatch(reqUserSelectBg(id));
     dispatch(reqGetUserNote(id));
   }, []);
@@ -106,7 +106,7 @@ const Profile = () => {
           <div className="noImg">{init}</div>
         ) : (
           <div className="img">
-            <img src={avatar} alt="name" />
+            <img src={avatar} alt="" />
           </div>
         )}
         <label htmlFor="image__upload">
