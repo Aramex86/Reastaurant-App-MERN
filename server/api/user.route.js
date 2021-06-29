@@ -33,8 +33,16 @@ const fileFilter = (req, file, cb) => {
 let upload = multer({ storage, fileFilter });
 
 router.route("/register").post((req, res) => {
-  const newUser = new User(req.body);
+  const { name, lastName, password, email } = req.body;
 
+  const newUser = new User({
+    name,
+    lastName,
+    password,
+    email,
+  });
+
+  console.log(newUser);
   newUser
     .save()
     .then(() => res.json({ success: true }))

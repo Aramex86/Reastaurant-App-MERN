@@ -39,7 +39,6 @@ const userSchema = new Schema(
       type: Array,
       restName: {
         type: String,
-        unique: 1,
       },
       userName: String,
       raiting: String,
@@ -98,7 +97,6 @@ userSchema.methods.comparePassword = function (candidatePassword, cb) {
 
 userSchema.methods.generateToken = function (cb) {
   const user = this;
-  console.log(process.env.SECRET);
   const token = jwt.sign(user._id.toHexString(), process.env.SECRET);
   // console.log(token);
   // console.log(user);

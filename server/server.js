@@ -57,15 +57,8 @@ app.use("/api/v1/profileBg", background);
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.resolve(__dirname, "../client/build")));
 
-  app.get("*", (_, res) => {
-    res.sendFile(
-      path.resolve(__dirname, "../client/build/index.html"),
-      (err) => {
-        if (err) {
-          res.status(500).send(err);
-        }
-      }
-    );
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "../client/build/index.html"));
   });
 }
 app.listen(port, () => {
