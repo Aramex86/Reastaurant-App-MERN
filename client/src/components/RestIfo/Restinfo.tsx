@@ -3,7 +3,6 @@ import { useParams } from "react-router";
 import { useAppDispatch, useAppSelector } from "../../Store/hooks/hooks";
 import {
   reqRestaurantById,
-  reqUpdateRestaurant,
   restaurantByIdSelector,
 } from "../../Store/slice/restaurantSlice";
 import { RestaurantType } from "../../types/types";
@@ -15,8 +14,7 @@ import { BiMessageRoundedAdd } from "react-icons/bi";
 import Map from "../Map/Map";
 import AddReview from "./AddReview";
 import Reviews from "./Reviews";
-import { useCallback } from "react";
-import { reqReviews } from "../../Store/slice/userSlice";
+import { imageType } from "../../helpers/imageType";
 
 interface IdType {
   id: string;
@@ -47,13 +45,10 @@ const Restinfo = () => {
   const { name, address, neighborhood, cuisine_type, image, reviews, latlng } =
     restaurant;
 
-  console.log(reviews);
   return (
     <>
       <div className="resinfo">
-        <div className="resinfo__image">
-          <img src={image} alt={name} />
-        </div>
+        <div className="resinfo__image">{imageType(image)}</div>
         <div className="resinfo__info">
           <h3>{name}</h3>
           <ul>

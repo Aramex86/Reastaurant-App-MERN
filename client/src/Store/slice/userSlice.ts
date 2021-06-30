@@ -26,7 +26,6 @@ const initialState = {
   isAuth: false,
   reviews: [] as Array<AddReview>,
   likedRest: [] as Array<RestaurantType>,
-  avatar: "",
   selectedBg: {} as ProfileBgType,
   note: [] as Array<NoteType>,
   closePopup: false,
@@ -71,9 +70,6 @@ export const usersSlice = createSlice({
     userPhotoUploadSuccess: (state, action) => {
       state.userPhotoSuccess = action.payload;
     },
-    getUserAvatar: (state, { payload }) => {
-      state.avatar = payload;
-    },
     setBg: (state, { payload }) => {
       state.selectedBg = payload;
     },
@@ -104,7 +100,6 @@ export const {
   userLikedRest,
   deleteLikedRest,
   userPhotoUploadSuccess,
-  getUserAvatar,
   setBg,
   setNote,
   closePopup,
@@ -129,7 +124,6 @@ export const logoutUserSelector = (state: RootState) =>
 export const userReviewSelector = (state: RootState) => state.users.reviews;
 export const userLikedRestSelector = (state: RootState) =>
   state.users.likedRest;
-export const userAvatarSelector = (state: RootState) => state.users.avatar;
 export const userSelectedBgSelector = (state: RootState) =>
   state.users.selectedBg;
 export const userNotesSelector = (state: RootState) => state.users.note;
@@ -203,19 +197,11 @@ export const reqUserPhoto =
   async (dispatch) => {
     const res = await usersApi.userPhotoUpload(data, id);
     dispatch(userPhotoUploadSuccess(res));
-    dispatch(getUserAvatar(res));
-  };
-export const reqUserAvatar =
-  (id: string): AppThunk =>
-  async (dispatch) => {
-    const res = await usersApi.userGetImage(id);
-    dispatch(getUserAvatar(res));
   };
 export const reqUserSelectedBg =
   (id: string, data: ProfileBgType): AppThunk =>
   async (dispatch) => {
     const res = await usersApi.selectedBg(id, data);
-    // console.log("Respond", res);
     dispatch(setBg(res));
   };
 export const reqAddUserNote =

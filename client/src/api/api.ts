@@ -170,15 +170,7 @@ export const usersApi = {
         },
       })
       .then((res) => {
-        if (res.status === 200) {
-          return instance
-            .get(`users/profile/image/${id}`)
-            .then((res) => {
-              console.log(res.data);
-              return res.data;
-            })
-            .catch((err) => err);
-        }
+        return res.data;
       })
       .catch((err) => err);
   },

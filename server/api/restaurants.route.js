@@ -12,7 +12,7 @@ const router = express.Router();
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, path.join(__dirname, "../upload"));
+    cb(null, path.join(__dirname, "../../client/public/restaurants"));
   },
   filename: function (req, file, cb) {
     cb(null, file.originalname);
@@ -69,7 +69,7 @@ router.route("/add").post(upload.single("photo"), (req, res) => {
   };
   const neighborhood = req.body.neighborhood;
   const reviews = req.body.reviews;
-  const image = `https://secret-woodland-40370.herokuapp.com/${req.file.filename}`;
+  const image = req.file.filename;
 
   const newRestaurant = new Restaurant({
     id,

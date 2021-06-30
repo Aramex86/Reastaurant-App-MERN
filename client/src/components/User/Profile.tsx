@@ -4,10 +4,7 @@ import {
   authUserSelector,
   closePopUpSelector,
   reqGetUserNote,
-  reqUserAvatar,
   reqUserPhoto,
-  userAvatarSelector,
-  userSelectedBgSelector,
 } from "../../Store/slice/userSlice";
 import SideMenu from "./SideMenu";
 
@@ -27,7 +24,6 @@ import Popup from "../common/Popup";
 const Profile = () => {
   let { id }: { id: string } = useParams();
   const authUser = useAppSelector(authUserSelector);
-  const avatar = useAppSelector(userAvatarSelector);
   const selectedBg = useAppSelector(userBgSelSelector);
   const closePop = useAppSelector(closePopUpSelector);
   const dispatch = useAppDispatch();
@@ -36,9 +32,6 @@ const Profile = () => {
   const [showAddNote, setShowAddNote] = useState<boolean>(false);
 
   useLayoutEffect(() => {
-    dispatch(reqUserAvatar(id));
-  }, []);
-  useLayoutEffect(() => {
     dispatch(reqUserSelectBg(id));
     dispatch(reqGetUserNote(id));
   }, []);
@@ -46,8 +39,6 @@ const Profile = () => {
   const { color, bgimage } = selectedBg;
   const { name, lastname, email, image } = authUser;
   const init = authUser.name ? name.slice(0, 1) : "";
-
-  console.log(avatar);
 
   const handlePhoto = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file: any = e.target.files;
@@ -106,7 +97,7 @@ const Profile = () => {
           <div className="noImg">{init}</div>
         ) : (
           <div className="img">
-            <img src={avatar} alt="" />
+            <img src={`/avatar/${image}`} alt="..." />
           </div>
         )}
         <label htmlFor="image__upload">

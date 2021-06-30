@@ -13,7 +13,7 @@ const __dirname = path.dirname(__filename);
 const router = express.Router();
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, path.join(__dirname, "../upload"));
+    cb(null, path.join(__dirname, "../../client/public/avatar"));
   },
   filename: function (req, file, cb) {
     cb(null, file.originalname);
@@ -143,7 +143,7 @@ router.route("/liked/:id").get((req, res) => {
 
 router.route("/profile/:id").post(upload.single("avatar"), (req, res) => {
   User.findById({ _id: req.params.id }).then((user) => {
-    user.image = `https://secret-woodland-40370.herokuapp.com/${req.file.filename}`;
+    user.image = req.file.filename;
 
     user
       .save()

@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../Store/hooks/hooks";
 import { authUserSelector, reqLikedRest } from "../../Store/slice/userSlice";
 import { restaurantSelector } from "../../Store/slice/restaurantSlice";
+import { imageType } from "../../helpers/imageType";
 
 interface PropsType {
   name: string;
@@ -48,7 +49,6 @@ const ResCard: FC<PropsType> = ({
     setSelected(true);
   };
 
-  // console.log(selected);
   return (
     <div className="rescardwrapp ">
       <button
@@ -67,13 +67,7 @@ const ResCard: FC<PropsType> = ({
       </button>
       <Link to={`/${_id}`}>
         <div className="top ">
-          <div className="top__img ">
-            {image ? (
-              <img src={image} alt={name} />
-            ) : (
-              <span>Coming Soon...</span>
-            )}
-          </div>
+          <div className="top__img ">{imageType(image)}</div>
         </div>
         <div className="bottom">
           <ul className="bottom__list ">
