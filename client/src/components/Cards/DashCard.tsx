@@ -9,6 +9,7 @@ import {
   reqDeleteLikedRest,
   reqUserLikedRest,
 } from "../../Store/slice/userSlice";
+import { imageType } from "../../helpers/imageType";
 
 interface IProps {
   name: string;
@@ -42,9 +43,7 @@ const DashCard: FC<IProps> = ({
           <RiDeleteBin2Fill size="24" fill="#fff" />
         </button>
       </div>
-      <div className="dashcard__img">
-        <img src={image} alt={name} />
-      </div>
+      <div className="dashcard__img">{imageType(image)}</div>
       <ul className="dashcard__list">
         <li className="dashcard__list__item">
           <h3 className="dashcard__name">{name}</h3>

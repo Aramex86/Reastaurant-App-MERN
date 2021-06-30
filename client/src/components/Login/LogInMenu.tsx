@@ -10,7 +10,7 @@ const LogInMenu = () => {
   const dispatch = useAppDispatch();
   const auth: IsAuthType = useAppSelector(authUserSelector);
   const history = useHistory();
-  const { name } = auth;
+  const { name, image } = auth;
 
   const randomBg = [
     "violet",
@@ -47,7 +47,11 @@ const LogInMenu = () => {
         Logout
       </button>
       <div className="login__icon" style={{ background: `${bgColor}` }}>
-        {`${initials}`.toLocaleUpperCase()}
+        {image ? (
+          <img src={`/avatar/${image}`} alt="..." />
+        ) : (
+          `${initials}`.toLocaleUpperCase()
+        )}
       </div>
       <UserMenu />
     </>

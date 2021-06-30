@@ -53,8 +53,6 @@
   position: relative;
 }
 
-
-
 //Logout
 .login__icon {
   width: 36px;
@@ -67,6 +65,12 @@
   align-items: center;
   font-size: 18px;
   font-weight: bold;
+  & img {
+    width: 36px;
+    height: 36px;
+    object-fit: cover;
+    border-radius: 50px;
+  }
 }
 
 //User Menu
@@ -102,7 +106,7 @@
     }
   }
 }
-.register-login:hover .user-menu{
+.register-login:hover .user-menu {
   opacity: 1;
   visibility: visible;
 }
