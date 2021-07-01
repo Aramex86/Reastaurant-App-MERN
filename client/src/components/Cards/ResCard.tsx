@@ -81,7 +81,7 @@ const ResCard: FC<PropsType> = ({
             <li>
               {" "}
               <BsFillHouseFill />
-              {address}
+              {address.length > 30 ? `${address.slice(0, 35)}...` : address}
             </li>
             <li>
               <GiKnifeFork /> {cuisine_type}
