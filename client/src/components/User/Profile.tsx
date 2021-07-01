@@ -34,7 +34,7 @@ const Profile = () => {
   useLayoutEffect(() => {
     dispatch(reqUserSelectBg(id));
     dispatch(reqGetUserNote(id));
-  }, []);
+  }, [authUser.image]);
 
   const { color, bgimage } = selectedBg;
   const { name, lastname, email, image } = authUser;
