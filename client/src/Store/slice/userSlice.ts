@@ -58,7 +58,6 @@ export const usersSlice = createSlice({
       state.loginUser = null;
     },
     userReviews: (state, { payload }) => {
-      console.log(payload);
       state.reviews = payload;
     },
     userLikedRest: (state, { payload }) => {
@@ -197,6 +196,7 @@ export const reqUserPhoto =
   async (dispatch) => {
     const res = await usersApi.userPhotoUpload(data, id);
     dispatch(userPhotoUploadSuccess(res));
+    dispatch(reqIsAuth());
   };
 export const reqUserSelectedBg =
   (id: string, data: ProfileBgType): AppThunk =>

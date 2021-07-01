@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useState } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../Store/hooks/hooks";
 import {
   authUserSelector,
@@ -34,7 +34,7 @@ const Profile = () => {
   useLayoutEffect(() => {
     dispatch(reqUserSelectBg(id));
     dispatch(reqGetUserNote(id));
-  }, [authUser.image]);
+  }, []);
 
   const { color, bgimage } = selectedBg;
   const { name, lastname, email, image } = authUser;
@@ -61,6 +61,7 @@ const Profile = () => {
   const handleAddNote = () => {
     setShowAddNote(true);
   };
+
   return (
     <div
       className="profile-wrapp"
@@ -111,6 +112,7 @@ const Profile = () => {
           id="image__upload"
         />
       </div>
+
       <div className="info-wrap">
         <div className="info-wrap__name">
           <span>First Name:</span>

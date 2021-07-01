@@ -153,7 +153,6 @@ export const usersApi = {
     return instance
       .get(`users/liked/${id}`)
       .then((res) => {
-        console.log(res.data);
         return res.data;
       })
       .catch((err) => err);
@@ -169,14 +168,6 @@ export const usersApi = {
           "Content-Type": "multipart/form-data",
         },
       })
-      .then((res) => {
-        return res.data;
-      })
-      .catch((err) => err);
-  },
-  userGetImage(id: string) {
-    return instance
-      .get(`users/profile/image/${id}`)
       .then((res) => {
         return res.data;
       })

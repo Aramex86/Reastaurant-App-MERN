@@ -3,6 +3,7 @@ import User from "../models/user.model.js";
 import auth from "../middleware/auth.js";
 import multer from "multer";
 import mongoose from "mongoose";
+import url from "url";
 
 import path from "path";
 import { fileURLToPath } from "url";
@@ -13,7 +14,7 @@ const __dirname = path.dirname(__filename);
 const router = express.Router();
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, path.join(__dirname, "../../client/public/avatar"));
+    cb(null, path.join(__dirname, "../upload/avatar"));
   },
   filename: function (req, file, cb) {
     cb(null, file.originalname);
@@ -135,7 +136,6 @@ router.route("/reviews/:id").get((req, res) => {
   });
 });
 router.route("/liked/:id").get((req, res) => {
-  // console.log(req.params.id);
   User.findByIdAndUpdate({ _id: req.params.id }).then((user) => {
     res.json(user.likedRest);
   });
@@ -145,21 +145,14 @@ router.route("/profile/:id").post(upload.single("avatar"), (req, res) => {
   User.findById({ _id: req.params.id }).then((user) => {
     user.image = req.file.filename;
 
+    console.log(user);
     user
       .save()
       .then(() => res.json("Image Added!"))
-      // .then((user) => res.json(user.image))
       .catch((err) => {
         res.status(400).json(`Error ${err}`);
       });
   });
-});
-router.route("/profile/image/:id").get((req, res) => {
-  User.findById({ _id: req.params.id })
-    .then((user) => res.json(user.image))
-    .catch((err) => {
-      res.status(400).json(`Error ${err}`);
-    });
 });
 
 router.route("/profile/addbg/:id").post((req, res) => {

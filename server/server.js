@@ -21,13 +21,12 @@ const corsConfig = {
   credentials: true,
 };
 const app = express();
-// const server = http.createServer(app);
 app.use(cors(corsConfig));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
-app.use(express.static("public"));
-app.use(express.static(path.join(__dirname, "/dist")));
+// app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "/upload")));
 const port = process.env.PORT || 5000;
 
 const url = process.env.MONGODB_URI;

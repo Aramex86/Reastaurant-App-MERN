@@ -22,7 +22,6 @@ const Restaurants = () => {
 
   if (!restaurants) return <div>Loading...</div>;
 
-  console.log(restaurants);
   return (
     <section className="restaurantswrapp">
       {filteredRestaurants.length > 0
