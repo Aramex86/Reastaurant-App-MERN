@@ -15,6 +15,12 @@
     justify-items: center;
     border-radius: 5px;
     height: 400px;
+    @include respond(phone) {
+      grid-column: 2/10;
+    }
+    @include respond(small-phone) {
+      grid-column: 2/12;
+    }
     & h3 {
       grid-row: 1;
       grid-column: 1/-1;

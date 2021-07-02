@@ -5,6 +5,9 @@
   background: url(../assets/loginBg-min.jpg) center/cover no-repeat;
   height: 100vh;
   opacity: 3;
+  @include respond(small-phone) {
+    grid-template-rows: repeat(4, 150px);
+  }
   &__form {
     grid-column: 4/6;
     grid-row: 2/4;
@@ -16,6 +19,12 @@
     font-family: "Lobster", cursive;
     color: #fff;
     border-radius: 5px;
+    @include respond(phone) {
+      grid-column: 3/7;
+    }
+    @include respond(small-phone) {
+      grid-column: 2/8;
+    }
 
     & span {
       letter-spacing: 1px;
