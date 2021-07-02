@@ -1,8 +1,10 @@
 .sidemenu {
   background: #0000007d;
-  width: 170px;
+  width: 17rem;
   grid-column: 1/1;
   grid-row: 1/-1;
+  height: 100vh;
+
   &-list {
     width: 100%;
     padding: 50px 0;
@@ -13,7 +15,7 @@
       font-weight: 600;
       cursor: pointer;
       & svg {
-        margin-right: 10px;
+        margin-right: 5px;
       }
       & a {
         color: inherit;

@@ -2,12 +2,20 @@
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
+  @include respond(phone) {
+    flex-direction: column;
+    overflow: hidden;
+    overflow-y: scroll;
+  }
   &__card {
     padding: 10px 5px;
     border: 1px solid #8080805e;
     width: 40%;
     margin-bottom: 11px;
     border-radius: 5px;
+    @include respond(phone) {
+      width: 100%;
+    }
     &__name {
       font-weight: 600;
     }

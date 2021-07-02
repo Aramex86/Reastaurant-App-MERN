@@ -9,16 +9,10 @@ import { authUserSelector } from "../../Store/slice/userSlice";
 
 const SideMenu = () => {
   const authUser = useAppSelector(authUserSelector);
-  const [heigth, setHeigth] = useState<number>(100);
-
-  useEffect(() => {
-    const heigthW = window.innerHeight;
-    setHeigth(heigthW);
-  }, [heigth]);
 
   const { _id } = authUser;
   return (
-    <div className="sidemenu" style={{ height: heigth }}>
+    <div className="sidemenu">
       <ul className="sidemenu-list">
         <li className="sidemenu-list__item">
           <Link to="/">

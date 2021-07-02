@@ -28,6 +28,12 @@
       padding: 5px 10px;
     }
   }
+  @include respond(small-phone) {
+    top: 7%;
+    width: 45rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
 .addnote-error {
   position: absolute;

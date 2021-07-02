@@ -7,10 +7,28 @@
   justify-content: space-between;
   justify-self: end;
   width: 90%;
+  gap: 5px;
+  @include respond(tab-port) {
+    grid-column: 8/10;
+    flex-direction: column;
+  }
+  @include respond(small-phone) {
+    grid-column: 2/9;
+    grid-row: 1/1;
+    flex-wrap: wrap;
+    justify-self: center;
+    flex-direction: row;
+    width: 66%;
+  }
 }
 
 .bg__type {
   width: 100px;
   height: 70px;
   cursor: pointer;
+  @include respond(small-phone) {
+    width: 68px;
+    height: 49px;
+    cursor: pointer;
+  }
 }

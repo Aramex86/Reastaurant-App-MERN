@@ -4,4 +4,14 @@
   grid-template-rows: repeat(3, auto);
   background: linear-gradient(to right, #fff, rgba(235, 235, 235, 0.2)),
     url(../../assets/addRestBg-min.jpg) center/cover no-repeat;
+  height: 100vh;
+}
+
+@include respond(small-phone) {
+  .addres-wrapp .sidemenu {
+    display: none;
+  }
+  .addres-wrapp {
+    grid-template-columns: repeat(12, auto);
+  }
 }

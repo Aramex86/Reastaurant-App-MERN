@@ -7,6 +7,13 @@
   position: relative;
   width: 20%;
   margin: 0 10px 10px 0;
+  @include respond(tab-port) {
+    width: 30%;
+  }
+  @include respond(small-phone) {
+    width: 100%;
+  }
+
   &:hover {
     box-shadow: 0px 4px 5px 3px #80808087;
   }
