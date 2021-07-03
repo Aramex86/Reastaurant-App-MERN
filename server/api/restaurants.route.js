@@ -15,7 +15,7 @@ const storage = multer.diskStorage({
     cb(null, path.join(__dirname, "../upload/restaurants"));
   },
   filename: function (req, file, cb) {
-    cb(null, file.originalname);
+    cb(null, new Date().toISOString().replace(/:/g, "-") + file.originalname);
   },
 });
 const fileFilter = (req, file, cb) => {

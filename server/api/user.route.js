@@ -17,7 +17,7 @@ const storage = multer.diskStorage({
     cb(null, path.join(__dirname, "../upload/avatar"));
   },
   filename: function (req, file, cb) {
-    cb(null, file.originalname);
+    cb(null, new Date().toISOString().replace(/:/g, "-") + file.originalname);
   },
 });
 //new Date().toISOString().replace(/:/g, "-") +
@@ -43,7 +43,6 @@ router.route("/register").post((req, res) => {
     email,
   });
 
-  console.log(newUser);
   newUser
     .save()
     .then(() => res.json({ success: true }))
